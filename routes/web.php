@@ -1,14 +1,15 @@
 <?php
 
-use App\Http\Controllers\DashboardController;
 use App\Models\Post;
 use App\Models\User;
 use App\Models\Category;
-
 use Illuminate\Support\Facades\Route;
+
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\AdminCategoryController;
 use App\Http\Controllers\DashboardPostController;
 
 /*
@@ -62,6 +63,9 @@ Route::post('/logout', [LoginController::class, 'logout']);
 Route::get('/dashboard/posts/checkSlug', [DashboardPostController::class, 'checkSlug']);
 
 Route::resource('/dashboard/posts', DashboardPostController::class)->middleware('auth');
+
+//Menggunakan midleware yang dibuat sendiri yaitu (is_admin) atau bisa juga menggunakan gate autorization
+Route::resource('/dashboard/categories', AdminCategoryController::class)->except('show')->middleware('is_admin');
 
 // Routs Ngggak kepake
 // Route::get('/categories/{category:slug}', function (Category $category) {

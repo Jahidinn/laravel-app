@@ -1,10 +1,17 @@
 trix-toolbar [data-trix-button-group="file-tools"]{
             display: none;
         }
-
-.show-image-post{
-    max-height: 300px;
-    overflow: hidden;
+.case-image-post-view {
+    max-height: 350px;
+    overflow:hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+.image-post-view{
+    flex-shrink: 0;
+    min-width: 100%;
+    min-height: 100%;
 }
 .inputDnD {
 .form-control-file {

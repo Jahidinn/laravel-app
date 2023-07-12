@@ -26,11 +26,11 @@
 @if ($posts->count())
     <div class="card mb-3">
         @if ($posts[0]->input_image)
-            <div style="max-height: 200px; overflow:hidden;">
-                <img style="max-width: 100%;max-height:100%;object-fit:cover;" src="{{ asset('storage/' . $posts[0]->input_image) }}" class="img-fluid" alt="$posts[0]->category->name">
+            <div class="bg-dark case-image-post-view">
+                <img class="image-post-view" src="{{ asset('storage/' . $posts[0]->input_image) }}" class="img-fluid" alt="$posts[0]->category->name">
             </div>
          @else   
-            <img src="https://source.unsplash.com/500x300?{{ $post->category->name }}" class="card-img-top" alt="$post->category->name">
+            <img class="image-post-view" src="https://source.unsplash.com/500x300?{{ $posts[0]->category->name }}" class="card-img-top" alt="$post->category->name">
         @endif
         
         <div class="card-body text-center">
@@ -47,16 +47,20 @@
 
 <div class="container">
     <div class="row">
+
         @foreach ($posts->skip(1) as $post)
         <div class="col-md-4 mb-3">
             <div class="card">
                 <div class="position-absolute px-3 py-2 bg-dark text-white"><a href="/posts?category={{ $post->category->slug }}" class="text-decoration-none text-white">Category : {{ $post->category->name }}</a></div>
-                @if ($posts[0]->input_image)
-                <div style="max-height: 300px; overflow:hidden;">
-                    <img src="{{ asset('storage/' . $posts[0]->input_image) }}" class="img-fluid" alt="$posts[0]->category->name">
+                
+                @if ($post->input_image)
+                <div class="card-image-post">
+                    <img class="image-post-view" src="{{ asset('storage/' . $post->input_image) }}" class="img-fluid" alt="$post->category->name">
                 </div>
-                @else   
-                <img src="https://source.unsplash.com/500x300?{{ $post->category->name }}" class="card-img-top" alt="$post->category->name">
+                @else
+                <div class="card-image-post">
+                    <img class="image-post-view" src="https://source.unsplash.com/500x300?{{ $post->category->name }}" class="card-img-top" alt="$post->category->name">
+                </div>
                 @endif
                 
                 <div class="card-body">
@@ -71,6 +75,7 @@
             </div>
         </div> 
         @endforeach
+
     </div>
 </div>
 @else

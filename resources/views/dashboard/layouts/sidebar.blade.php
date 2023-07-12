@@ -34,19 +34,23 @@
             <span>Article</span></a>
     </li>
 
-    <!-- Divider -->
+    
+    
+    {{-- Hanya bisa diakses oleh admin dengan gate autorization laravel --}}
+    @can('only_admin')
     <hr class="sidebar-divider">
-
     <!-- Heading -->
     <div class="sidebar-heading">
-        Addons
+        Administrator
     </div>
     <!-- Nav Item - Tables -->
-    <li class="nav-item">
-        <a class="nav-link" href="tables.html">
+    <li class="nav-item {{ Request::is('dashboard/categories*') ? 'active' : '' }}">
+        <a class="nav-link" href="/dashboard/categories">
             <i class="fas fa-fw fa-user"></i>
-            <span>User</span></a>
+            <span>Category</span></a>
     </li>
+            
+    @endcan
 
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">

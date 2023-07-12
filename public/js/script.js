@@ -22,6 +22,23 @@ function readUrl(input) {
         console.log(e.target.result);
       }
       reader.readAsDataURL(input.files[0]);
+    };
+}
+function imagePreview(){
+    // Menangani preview image
+    const image = document.querySelector('#input_image');
+    const imgPreview = document.querySelector('.img-preview');
+
+    imgPreview.style.display = 'block';
+
+    const oFReader = new FileReader();
+    oFReader.readAsDataURL(image.files[0]);
+
+    oFReader.onload = function(oFREvent){
+      imgPreview.src = oFREvent.target.result;
     }
-  
-  }
+}
+// Preview image pada edit post (Alternatif lain selain preview diatas)
+function previewImage() {
+  frameImageEdit.src=URL.createObjectURL(event.target.files[0]);
+}
