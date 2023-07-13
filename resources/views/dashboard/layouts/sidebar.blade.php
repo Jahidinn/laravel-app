@@ -31,7 +31,7 @@
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item {{ Request::is('dashboard/posts*') ? 'active' : '' }}">
         <a class="nav-link" href="/dashboard/posts">
-            <i class="fas fa-fw fa-chart-area "></i>
+            <i class="far fa-newspaper"></i>
             <span>Article</span></a>
     </li>
 
@@ -47,15 +47,26 @@
     <!-- Nav Item - Tables -->
     <li class="nav-item {{ Request::is('dashboard/categories*') ? 'active' : '' }}">
         <a class="nav-link" href="/dashboard/categories">
-            <i class="fas fa-fw fa-user"></i>
+            <i class="fas fa-list"></i>
             <span>Category</span></a>
     </li>
             
     @endcan
     
     <!-- Divider -->
-    <hr class="sidebar-divider d-none d-md-block">
     @endcan
+    <hr class="sidebar-divider d-none d-md-block">
+
+    <!-- Heading -->
+    <div class="sidebar-heading">
+        Setting
+    </div>
+    <!-- Nav Item - Tables -->
+    <li class="nav-item">
+        <a class="nav-link" href="/dashboard/myprofile">
+            <i class="fas fa-user-cog"></i>
+            <span>Profil</span></a>
+    </li>
 
     <!-- Sidebar Toggler (Sidebar) -->
     <div class="text-center d-none d-md-inline">

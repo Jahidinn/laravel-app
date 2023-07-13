@@ -6,7 +6,7 @@
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">Manajemen category</h1>
         <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+            class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
     </div>
 
     <!-- Content Row -->
@@ -17,6 +17,7 @@
             <span aria-hidden="true">&times;</span>
         </div>
     @endif
+
     <div class="row mx-1">
         
         <div class="card shadow col m-0 p-0">
@@ -39,7 +40,6 @@
                     <th scope="row">{{ $loop->iteration }}</th>
                     <td>{{ $category->name }}</td>
                     <td >
-                        <a href="/dashboard/categories/{{ $category->slug }}" class="badge px-2 bg-info text-white"><i class="far fa-eye"></i></a>
                         <a href="/dashboard/categories/{{ $category->slug }}/edit" class="badge px-2 bg-success text-white"><i class="far fa-edit"></i></a>
                         <form action="/dashboard/categories/{{ $category->slug }}" method="post" class="d-inline">
                         @method('delete')

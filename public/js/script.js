@@ -1,11 +1,30 @@
-const title = document.querySelector('#title');
-const slug = document.querySelector('#slug');
+const input_field = document.querySelector('.input-slug');
+const slug = document.querySelector("#slug");
 
-title.addEventListener('change', function(){
-    fetch('/dashboard/posts/checkSlug?title=' + title.value)
-        .then(response => response.json())
-        .then(data => slug.value = data.slug)
+//Membuat slug pada form (Tanpa cek database)
+input_field.addEventListener("keyup", function() {
+  let preslug = input_field.value;
+  preslug = preslug.replace(/ /g,"-");
+  slug.value = preslug.toLowerCase();
 });
+
+
+// slug dengan library + cek database (Tapi masih ada problem ketika digunakan untuk 2 fitur)
+// input_field.addEventListener('change', function(){
+//   fetch('/dashboard/posts/checkSlug?key=' + input_field.value)
+//   .then(response => response.json())
+//   .then(data => slug.value = data.slug)
+// });
+
+
+
+// category_name.addEventListener('change', function(){
+//     fetch('/dashboard/categories/checkSlug?category_name=' + category_name.value)
+//         .then(response => response.json())
+//         .then(data => slug2.value = data.slug)
+// });
+
+
 document.addEventListener('trix-file-accept', function(e){
     e.preventDefault();
 });

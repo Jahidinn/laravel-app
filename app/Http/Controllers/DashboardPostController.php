@@ -140,7 +140,7 @@ class DashboardPostController extends Controller
 
     public function checkSlug(Request $request)
     {
-        $slug = SlugService::createSlug(Post::class, 'slug', $request->title);
+        $slug = SlugService::createSlug(Post::class, 'slug', $request->key);
         return response()->json(['slug' => $slug]);
     }
 }

@@ -15,7 +15,7 @@
                     @csrf
                     <div class="form-group">
                       <label for="title">Title</label>
-                      <input type="text" class="form-control @error('title') is-invalid @enderror" placeholder="Title" id="title" name="title" value="{{ old('title') }}" required>
+                      <input type="text" class="form-control input-slug @error('title') is-invalid @enderror" placeholder="Title" id="title" name="title" value="{{ old('title') }}" required>
                         @error('title')
                         <div class="invalid-veedback text-danger">{{ $message }}</div>
                         @enderror

@@ -44,7 +44,7 @@
                         <a href="/dashboard/posts/{{ $post->slug }}" class="badge px-2 bg-info text-white"><i class="far fa-eye"></i></a>
                         <a href="/dashboard/posts/{{ $post->slug }}/edit" class="badge px-2 bg-success text-white"><i class="far fa-edit"></i></a>
                         <form action="/dashboard/posts/{{ $post->slug }}" method="post" class="d-inline">
-                        @method('delete')
+                        @method('destroy')
                         @csrf
                         <button class="badge px-2 bg-danger text-white border-0" onclick="return confirm('Are you sure?')"><i class="far fa-times-circle"></i></button>
                         </form>

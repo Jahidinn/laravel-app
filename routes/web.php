@@ -69,15 +69,10 @@ Route::get('/dashboard/posts/checkSlug', [DashboardPostController::class, 'check
 Route::resource('/dashboard/posts', DashboardPostController::class)->middleware(['auth', 'verified']);
 
 //Menggunakan midleware yang dibuat sendiri yaitu (is_admin) atau bisa juga menggunakan gate autorization
-Route::resource('/dashboard/categories', AdminCategoryController::class)->except('show')->middleware('is_admin');
+Route::resource('/dashboard/categories', AdminCategoryController::class)->middleware('is_admin', 'auth', 'verified');
 
 
 //Menangani verifikasi email
-
-// Route::get('/email/verify', function () {
-//     return view('login.index');
-// })->middleware('auth')->name('verification.notice');
-
 
 Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
     $request->fulfill();
