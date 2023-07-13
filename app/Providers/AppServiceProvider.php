@@ -29,5 +29,10 @@ class AppServiceProvider extends ServiceProvider
         Gate::define('only_admin', function (User $user) {
             return $user->is_admin === 1;
         });
+        Gate::define('only_verify', function (User $user) {
+            if ($user->email_verified_at) {
+                return true;
+            }
+        });
     }
 }

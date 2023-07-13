@@ -13,7 +13,7 @@
     <hr class="sidebar-divider my-0">
 
     <!-- Nav Item - Dashboard -->
-    <li class="nav-item {{ Request::is('dashboard') ? 'active' : '' }}">
+    <li class="nav-item {{ Request::is('dashboard*') ? 'active' : '' }}">
         <a class="nav-link" href="index.html">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
@@ -22,6 +22,7 @@
     <!-- Divider -->
     <hr class="sidebar-divider">
 
+    @can('only_verify')
     <!-- Heading -->
     <div class="sidebar-heading">
         Interface
@@ -51,9 +52,10 @@
     </li>
             
     @endcan
-
+    
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
+    @endcan
 
     <!-- Sidebar Toggler (Sidebar) -->
     <div class="text-center d-none d-md-inline">
